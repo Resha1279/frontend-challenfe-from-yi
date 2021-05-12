@@ -1,12 +1,22 @@
+//IMPORTS
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 //COLORS
 
-$green: rgb(27, 163, 118);
-$ninjaGreen: rgb(20, 131, 20);
-$offWhite: #f8f9fb;
+$green: #27ad6c;
+$ninjaGreen: #70c919;
+$offWhite: #f2f2f2;
+$white:#ffffff;
+$black:#0f1110;
+$colorPrimaryText: #9b9b9b;
 
 
 //FONT SIZES
 
-$textPrimary: 24px;
+$textPrimary: 48px;
 $textSecondary: 22px;
 $textTertiary: 20px;
+
+
+//FONT
+$primaryFont: 'Roboto', sans-serif;
