@@ -26,7 +26,6 @@ a {
 }
 
 .wrapper {
-  width: 100%;
   max-width: 1400px;
   margin: 0 auto;
   box-sizing: border-box;
@@ -135,9 +134,55 @@ button a {
   padding-right: 8px;
 }
 
+section {
+  width: 100%;
+}
+
 section h1 {
   font-size: 48px;
   font-weight: 400;
   color: #9b9b9b;
+  text-align: center;
+  margin-top: 160px;
+}
+
+section h2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #27ad6c;
+}
+
+section h3 {
+  font-size: 14px;
+  font-weight: 400;
+  color: #4a4a4a;
+  opacity: 0.78;
+}
+
+#requirements .req-items {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+#requirements .req-items div {
+  float: left;
+  width: 28%;
+  margin-right: 8%;
+  max-width: 300px;
+}
+
+#requirements .req-items div:nth-child(3n) {
+  margin-right: 0;
+}
+
+#requirements h2 {
+  text-align: center;
+  margin-top: 40px;
+}
+
+#requirements h3 {
+  text-align: center;
+  line-height: 22px;
 }
 /*# sourceMappingURL=styles.css.map */
