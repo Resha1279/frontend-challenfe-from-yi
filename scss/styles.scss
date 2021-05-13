@@ -130,6 +130,15 @@ section{
         color: $colorTertiaryText;
         opacity: 0.78;
     }
+    h4{
+        font-size: $text;
+        font-weight: 400;
+    }
+    h5{
+        font-size: $textLight;
+        font-weight: 400;
+        opacity: 50%;
+    }
 }//end of section
 
 #requirements{
@@ -152,12 +161,193 @@ section{
     }
 
     h3{
-        //max-width: 300px;
         text-align: center;
         line-height: 22px;
     }
 
 }//end of requirements
+
+
+.third-section{
+    display: flex;
+    width: 100%;
+    
+
+    section{
+        @include grid(2, 0%);
+        margin-left: 5%;
+
+        h1{
+            text-align: left;
+        }
+
+        div{
+            max-width: 500px;
+            border-bottom: 1px solid rgba($ninjaGreen,0.2);
+        }
+    
+        h4{
+            color: $colorSecondaryText;
+            margin-top: 20px;
+        }
+        h5{
+            color: $colorPrimaryText;
+        }
+        a{
+            color: $colorSecondaryText;
+        }
+        
+
+    }
+   
+
+}//end of third section
+
+#resources{
+    div{
+        display: flex;
+        align-items: center;
+        height: 80px;
+    }
+    h1{
+        margin-bottom: 0px;
+    }
+
+    h4{
+        padding-left: 10px;
+    }
+}
+
+#latest-info{
+
+    div{
+        display: block;
+        align-items: center;
+    }
+    h4{
+        margin-bottom: 8px;
+    }
+}
+
+.divider-vertical{
+    border-right: 1px solid $ninjaGreen;
+    margin-top: 160px;
+}
+
+.divider{
+    display:flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+.divider-horizontal{
+    border-top: 1px solid $ninjaGreen;
+    width: 123px;
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+
+#random-food{
+    span{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.7;
+    }
+    h1{
+        margin-bottom: 10px;
+    }
+    h3:first-of-type{
+        font-style: italic;
+    }
+    div{
+        margin-top: 20px;
+        height: auto;
+    }
+    img{
+        @include grid(3, 0%);
+    }
+}//end of #random-food
+
+#benefits{
+    background-color: $bgBorwn;
+    height: 1100px;
+    padding-top: 840px;
+
+    h1,h2{
+        color: $white;
+    }
+    h2{
+        margin-left: 10px;
+        text-transform: uppercase;
+    }
+    h4{
+        color: $white;
+        opacity: 50%;
+        line-height: 24px;
+        //text-align: justify;
+        margin-left: 10px;
+        max-width: 250px;
+    }
+
+    .wrapper{
+        margin-top: 80px;
+        max-width: 1200px;
+    }
+    
+
+    .benefits-items{
+        @include grid(3, 3%);
+        margin-bottom: 4%;
+
+        display: flex;
+    }
+
+    .button{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+
+    }
+    
+    .logo{
+        display: flex;
+        width: 100%;
+        margin-top: 100px;
+        justify-content: center;
+        opacity: 40%;
+    }
+}//end of #benefits
+
+footer{
+    width: 100%;
+    background-color: $black;
+    height: 70px;
+    display: flex;
+    align-items: center;
+
+    h3{
+        font-size: $textTertiary;
+        font-weight: 400;
+        color: $offWhite;
+    }
+    div{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        div{
+            width: 20%;
+            display: flex;
+            justify-content: space-between;
+
+            h1{
+                text-transform: uppercase;
+            }
+        }
+      
+    }
+}
 
 
 
