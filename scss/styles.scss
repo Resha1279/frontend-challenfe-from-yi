@@ -3,6 +3,26 @@
 @import "./default";
 
 
+body{
+    @include desktop{
+        .wrapper{
+            max-width: 90%;
+        }
+    }
+
+    @include laptop{
+        .wrapper{
+            max-width: 95%;
+        }
+    }
+
+    @include tablet{
+        .wrapper{
+            max-width: 95%;
+        }
+    }
+}
+
 header{
     background-image: url("../images/img_hero-image.jpg");
     background-color: #406b55;
@@ -16,7 +36,26 @@ header{
 
     button{
         position: absolute;
-        top: 520px   }
+        top: 520px   
+    
+    
+    }
+
+    @include tablet{
+        button{
+            top: 500px 
+        }
+    }
+
+    @include mobile{
+        height: 450px;
+        button{
+            top: 350px 
+        }
+    }
+
+
+
 }//end of header
 
 nav{
@@ -35,6 +74,14 @@ nav{
 
 .space{
     width:40%;
+
+    @include laptop{
+        width: 20%;
+    }
+
+    @include tablet{
+        width: 0%;
+    }
 }
 
 .main-nav{
@@ -62,7 +109,19 @@ nav{
             color:$ninjaGreen;
         }
     }
-}//end of main-nav
+
+    @include laptop{
+        width: 50%;
+    }
+
+    @include tablet{
+        width: 70%;
+    }
+
+    @include mobile{
+        visibility: hidden;
+    }
+}//end of .main-nav
 
 .hero{
     display:flex;
@@ -76,6 +135,19 @@ nav{
     position: absolute;
     top:250px;
     text-align: center;
+
+    @include laptop{
+        font-size: 62px;
+        top:260px;
+    }
+    @include tablet{
+        font-size: 42px;
+        top:280px;
+    }
+    @include mobile{
+        font-size: 30px;
+        top:100px;
+    }
 }
 
 .hero-sub-text{
@@ -88,6 +160,22 @@ nav{
     text-align: center;
     color: $white;
     max-width: 624px;
+
+    @include laptop{
+        font-size: 18px;
+        top:370px;
+        max-width: 500px;
+    }
+    @include tablet{
+        font-size: 16px;
+        top:360px;
+        max-width: 400px;
+    }
+    @include mobile{
+        font-size: 16px;
+        top:180px;
+        max-width: 300px;
+    }
 }
 
 button{
@@ -106,6 +194,26 @@ button{
         font-weight: 400;
         padding-right: 8px;
     }
+
+    @include tablet{
+        height: 50px;
+        width: 150px;
+
+        a{
+            font-size: 14px;
+        }
+    }
+
+    @include mobile{
+        background-color: none;
+        height: 40px;
+        width: 150px;
+
+        a{
+            font-size: 14px;
+        }
+    }
+
 }//end of button
 
 
@@ -139,6 +247,44 @@ section{
         font-weight: 400;
         opacity: 50%;
     }
+
+    @include tablet{
+        h1{
+            font-size: $textPrimary - 5px;
+            margin-top: 80px;
+        }
+        h2{
+            font-size: $textSecondary - 3px;
+        }
+        h3{
+            font-size: $textTertiary - 1px;
+        }
+        h4{
+            font-size: $text - 1px;
+        }
+        h5{
+            font-size: $textLight - 1px;
+        }
+    }
+
+    @include mobile{
+        h1{
+            font-size: $textPrimary - 14px;
+            margin-top: 80px;
+        }
+        h2{
+            font-size: $textSecondary - 3px;
+        }
+        h3{
+            font-size: $textTertiary - 2px;
+        }
+        h4{
+            font-size: $text - 2px;
+        }
+        h5{
+            font-size: $textLight - 2px;
+        }
+    }
 }//end of section
 
 #requirements{
@@ -151,9 +297,14 @@ section{
 
         div{
             @include grid(3, 8%);
+            width: 100%;
             max-width: 300px;
         }
+
+        
     }
+
+    
 
     h2{
         text-align: center;
@@ -165,7 +316,44 @@ section{
         line-height: 22px;
     }
 
-}//end of requirements
+    @include tablet{
+        img{
+            width: 100%;
+        }
+    }
+
+    @include laptop{
+        img{
+            width: 100%;
+        }
+    }
+
+    @include mobile{
+        .req-items{
+            display:flex;
+            width: 80%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        img{
+            width: 100%;
+        }
+
+        div{
+            margin-bottom: 30px;
+        }
+
+        h2{
+            text-align: center;
+            margin-top: 10px;
+        }
+    }
+
+
+}//end of #requirements
 
 
 .third-section{
@@ -199,9 +387,37 @@ section{
         
 
     }
+
+    @include tablet{
+        flex-direction: column;
+
+        section{
+            @include grid(1, 0%);
+            margin-right: 5%;
+
+            div{
+                max-width: none;
+                width: 100%;
+            }
+
+        }
+    }
+    @include mobile{
+        flex-direction: column;
+        section{
+            @include grid(1, 0%);
+            margin-right: 5%;
+
+            div{
+                max-width: none;
+                width: 100%;
+            }
+
+        }
+    }
    
 
-}//end of third section
+}//end of .third-section
 
 #resources{
     div{
@@ -216,7 +432,7 @@ section{
     h4{
         padding-left: 10px;
     }
-}
+}//end of #resources
 
 #latest-info{
 
@@ -227,7 +443,13 @@ section{
     h4{
         margin-bottom: 8px;
     }
-}
+
+    @include tablet{
+        h1{
+            margin-top: 0px;
+        }
+    }
+}//end of #latest-info
 
 .divider-vertical{
     border-right: 1px solid $ninjaGreen;
@@ -249,6 +471,7 @@ section{
 
 
 #random-food{
+
     span{
         display: flex;
         justify-content: center;
@@ -263,17 +486,22 @@ section{
     }
     div{
         margin-top: 20px;
-        height: auto;
     }
     img{
         @include grid(3, 0%);
     }
+
+    @include clearFix;
+
 }//end of #random-food
 
 #benefits{
     background-color: $bgBorwn;
-    height: 1100px;
-    padding-top: 840px;
+
+    h1{
+        margin-top: 0px;
+        padding-top: 160px;
+    }
 
     h1,h2{
         color: $white;
@@ -286,7 +514,6 @@ section{
         color: $white;
         opacity: 50%;
         line-height: 24px;
-        //text-align: justify;
         margin-left: 10px;
         max-width: 250px;
     }
@@ -315,8 +542,49 @@ section{
         display: flex;
         width: 100%;
         margin-top: 100px;
+        padding-bottom: 50px;
         justify-content: center;
         opacity: 40%;
+    }
+
+    @include tablet{
+
+        .wrapper{
+            margin-top: 80px;
+            width: 90%
+        }
+
+        .benefits-items{
+            @include grid(1, 0%);
+            margin-bottom: 4%;
+            width: 100%;
+        }
+
+        h4{
+            max-width: none;
+        }
+
+    }
+
+    @include mobile{
+
+        .wrapper{
+            margin-top: 80px;
+            width: 90%
+        }
+
+        .benefits-items{
+            @include grid(1, 0%);
+            margin-bottom: 4%;
+    
+            display: flex;
+            width: 100%;
+        }
+
+        h4{
+            max-width: none;
+        }
+
     }
 }//end of #benefits
 
@@ -347,7 +615,7 @@ footer{
         }
       
     }
-}
+}//end of footer
 
 
 
