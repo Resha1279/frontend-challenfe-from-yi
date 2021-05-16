@@ -1,643 +1,664 @@
 @import "./variables";
 @import "./mixins";
 @import "./default";
-
+@import "./animations";
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+body {
+  //padding-top: 60px;
+  @include desktop {
+    .wrapper {
+      max-width: 90%;
+    }
   }
-  
 
-body{
-
-    //padding-top: 60px;
-    @include desktop{
-        .wrapper{
-            max-width: 90%;
-        }
+  @include laptop {
+    .wrapper {
+      max-width: 95%;
     }
+  }
 
-    @include laptop{
-        .wrapper{
-            max-width: 95%;
-        }
+  @include tablet {
+    .wrapper {
+      max-width: 95%;
     }
-
-    @include tablet{
-        .wrapper{
-            max-width: 95%;
-        }
-    }
+  }
 }
 
-header{
-    background-image: url("../images/img_hero-image.jpg");
-    background-color: #406b55;
-    height: 800px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-blend-mode: multiply;
+header {
+  background-image: url("../images/img_hero-image.jpg");
+  background-color: #406b55;
+  height: 800px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: multiply;
 
-    position: relative;
+  position: relative;
 
-    button{
-        position: absolute;
-        top: 520px   
-    
-    
+  button {
+    position: absolute;
+    top: 520px;
+  }
+
+  @include tablet {
+    button {
+      top: 500px;
     }
+  }
 
-    @include tablet{
-        button{
-            top: 500px 
-        }
+  @include mobile {
+    height: 450px;
+    button {
+      top: 350px;
     }
+  }
+} //end of header
 
-    @include mobile{
-        height: 450px;
-        button{
-            top: 350px 
-        }
-    }
+nav {
+  padding-top: 34px;
+  height: 60px;
+  width: 100%;
+  background-color: rgba($black, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
 
+.main-nav {
+  width: 30%;
 
-
-}//end of header
-
-nav{
-    padding-top: 34px;
-    height: 60px;
+  ul {
     width: 100%;
-    background-color: rgba($black,0.1);
-    display:flex;
-    align-items: center;
-    overflow: hidden;
-}
+    display: flex;
+    justify-content: space-between;
+    text-align: right;
+  }
 
-.logo{
-    width: 30%; 
-}
-
-.space{
-    width:40%;
-
-    @include laptop{
-        width: 20%;
-    }
-
-    @include tablet{
-        width: 0%;
-    }
-}
-
-.main-nav{
-    width: 30%;
-
-    ul{
-        width: 100%;
-        display:flex;
-        justify-content: space-between;
-        text-align: right;
-        
-    }
-
-    a{
-        color: $white;
-        font-size: 16px;
-        font-weight: 400;
-        opacity: 70%;
-
-        &:hover{
-            color:$ninjaGreen;
-        }
-
-        &.active{
-            color:$ninjaGreen;
-        }
-    }
-
-    @include laptop{
-        width: 50%;
-    }
-
-    @include tablet{
-        width: 70%;
-    }
-
-    @include mobile{
-        visibility: hidden;
-    }
-}//end of .main-nav
-
-.hero{
-    display:flex;
-    justify-content: center;
-}
-
-.hero-text{
-    font-size: 82px;
-    font-weight: 700;
-    color:$white;
-    position: absolute;
-    top:250px;
-    text-align: center;
-
-    @include laptop{
-        font-size: 62px;
-        top:260px;
-    }
-    @include tablet{
-        font-size: 42px;
-        top:280px;
-    }
-    @include mobile{
-        font-size: 30px;
-        top:100px;
-    }
-}
-
-.hero-sub-text{
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 28px;
-    opacity: 70%;
-    position: absolute;
-    top:380px;
-    text-align: center;
+  a {
     color: $white;
-    max-width: 624px;
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 70%;
 
-    @include laptop{
-        font-size: 18px;
-        top:370px;
-        max-width: 500px;
+    &:hover {
+      color: $ninjaGreen;
     }
-    @include tablet{
-        font-size: 16px;
-        top:360px;
-        max-width: 400px;
-    }
-    @include mobile{
-        font-size: 16px;
-        top:180px;
-        max-width: 300px;
-    }
-}
 
-button{
-    background-color: $green;
-    border-radius: 4px;
-    border: none;
-    width: 192px;
-    height: 60px;
+    &.active {
+      color: $ninjaGreen;
+    }
+  }
+
+  @include laptop {
+    width: 50%;
+  }
+
+  @include tablet {
+    display: none;
+  }
+
+  @include mobile {
+    display: none;
+  }
+} //end of .main-nav
+
+.mobile-active {
+  @include mobile {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: width 0.5s;
-
-    a{
-        color:$white;
-        font-size: 16px;
-        font-weight: 400;
-        padding-right: 8px;
-    }
-
-    @include desktop{
-        &:hover{
-            width: 198px;
-            box-shadow: 0px 2px 40px rgba($color: #000000, $alpha: 0.2);
-        }
-    }
-    @include laptop{
-        &:hover{
-            width: 198px;
-            box-shadow: 0px 2px 40px rgba($color: #000000, $alpha: 0.2);
-        }
-    }
-
-    @include tablet{
-        height: 50px;
-        width: 150px;
-
-        a{
-            font-size: 14px;
-        }
-    }
-
-    @include mobile{
-        background-color: none;
-        height: 40px;
-        width: 150px;
-
-        a{
-            font-size: 14px;
-        }
-    }
-
-}//end of button
-
-
-section{
-    width: 100%;
-
-    h1{
-        font-size: $textPrimary;
-        font-weight: 400;
-        color: $colorPrimaryText;
-        text-align: center;
-        margin-top: 160px;
-    }
-    h2{
-        font-size: $textSecondary;
-        font-weight: bold;
-        color: $colorSecondaryText;
-    }
-    h3{
-        font-size: $textTertiary;
-        font-weight: 400;
-        color: $colorTertiaryText;
-        opacity: 0.78;
-    }
-    h4{
-        font-size: $text;
-        font-weight: 400;
-    }
-    h5{
-        font-size: $textLight;
-        font-weight: 400;
-        opacity: 50%;
-    }
-
-    @include tablet{
-        h1{
-            font-size: $textPrimary - 5px;
-            margin-top: 80px;
-        }
-        h2{
-            font-size: $textSecondary - 3px;
-        }
-        h3{
-            font-size: $textTertiary - 1px;
-        }
-        h4{
-            font-size: $text - 1px;
-        }
-        h5{
-            font-size: $textLight - 1px;
-        }
-    }
-
-    @include mobile{
-        h1{
-            font-size: $textPrimary - 14px;
-            margin-top: 80px;
-        }
-        h2{
-            font-size: $textSecondary - 3px;
-        }
-        h3{
-            font-size: $textTertiary - 2px;
-        }
-        h4{
-            font-size: $text - 2px;
-        }
-        h5{
-            font-size: $textLight - 2px;
-        }
-    }
-}//end of section
-
-#requirements{
-
-
-    .req-items{
-        display: flex;
-        justify-content: center;
-        margin-top: 80px;
-
-        div{
-            @include grid(3, 8%);
-            width: 100%;
-            max-width: 300px;
-        }
-
-        
-    }
-
+    position: absolute;
+    top: 80px;
+    right: 0px;
+    width: inherit;
+    z-index: 10;
+    height: 450px - 60px;
+    justify-content: space-between;
     
 
-    h2{
-        text-align: center;
-        margin-top: 40px;
-    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      animation-name: nav-opacity;
+      animation-duration: 0.2s;
+      backdrop-filter: blur(20px);
 
-    h3{
-        text-align: center;
-        line-height: 22px;
-    }
-
-    @include tablet{
-        img{
-            width: 100%;
-        }
-    }
-
-    @include laptop{
-        img{
-            width: 100%;
-        }
-    }
-
-    @include mobile{
-        .req-items{
-            display:flex;
-            width: 80%;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        img{
-            width: 100%;
-        }
-
-        div{
-            margin-bottom: 30px;
-        }
-
-        h2{
-            text-align: center;
-            margin-top: 10px;
-        }
-    }
-
-
-}//end of #requirements
-
-
-.third-section{
-    display: flex;
-    width: 100%;
-    
-
-    section{
-        @include grid(2, 0%);
-        margin-left: 5%;
-
-        h1{
-            text-align: left;
-        }
-
-        div{
-            max-width: 500px;
-            border-bottom: 1px solid rgba($ninjaGreen,0.2);
-        }
-    
-        h4{
-            color: $colorSecondaryText;
-            margin-top: 20px;
-        }
-        h5{
-            color: $colorPrimaryText;
-        }
-        a{
-            color: $colorSecondaryText;
-        }
-        
-
-    }
-
-    @include tablet{
-        flex-direction: column;
-
-        section{
-            @include grid(1, 0%);
-            margin-right: 5%;
-
-            div{
-                max-width: none;
-                width: 100%;
-            }
-
-        }
-    }
-    @include mobile{
-        flex-direction: column;
-        section{
-            @include grid(1, 0%);
-            margin-right: 5%;
-
-            div{
-                max-width: none;
-                width: 100%;
-            }
-
-        }
-    }
-   
-
-}//end of .third-section
-
-#resources{
-    div{
-        display: flex;
-        align-items: center;
-        height: 80px;
-    }
-    h1{
-        margin-bottom: 0px;
-    }
-
-    h4{
-        padding-left: 10px;
-    }
-}//end of #resources
-
-#latest-info{
-
-    div{
-        display: block;
-        align-items: center;
-    }
-    h4{
-        margin-bottom: 8px;
-    }
-
-    @include tablet{
-        h1{
-            margin-top: 0px;
-        }
-    }
-}//end of #latest-info
-
-.divider-vertical{
-    border-right: 1px solid $ninjaGreen;
-    margin-top: 160px;
-}
-
-.divider{
-    display:flex;
-    justify-content: center;
-    margin-top: 100px;
-}
-.divider-horizontal{
-    border-top: 1px solid $ninjaGreen;
-    width: 123px;
-    margin-top: 30px;
-    margin-right: 20px;
-    margin-left: 20px;
-}
-
-
-#random-food{
-
-    span{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0.7;
-    }
-    h1{
-        margin-bottom: 10px;
-    }
-    h3:first-of-type{
-        font-style: italic;
-    }
-    div{
+      li {
         margin-top: 20px;
+        margin-bottom: 40px;
+        text-align: center;
+        text-shadow: 2px 2px 4px $black;
+      }
     }
-    img{
-        @include grid(3, 0%);
+  }
+  @include tablet {
+    display: flex;
+    position: absolute;
+    top: 80px;
+    right: 0px;
+    width: inherit;
+    z-index: 10;
+    overflow: hidden;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      animation-name: nav-opacity;
+      animation-duration: 0.4s;
+      backdrop-filter: blur(8px);
+
+      li {
+        margin-top: 20px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.hamburger-icon {
+  display: none;
+  opacity: 70%;
+  @include mobile {
+    display: block;
+    cursor: pointer;
+  }
+
+  @include tablet {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+.bar {
+  display: block;
+  width: 26px;
+  height: 4px;
+  border-radius: 25%;
+  margin: 4px;
+  background-color: $white;
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-text {
+  font-size: 82px;
+  font-weight: 700;
+  color: $white;
+  position: absolute;
+  top: 250px;
+  text-align: center;
+
+  @include laptop {
+    font-size: 62px;
+    top: 260px;
+  }
+  @include tablet {
+    font-size: 42px;
+    top: 280px;
+  }
+  @include mobile {
+    font-size: 30px;
+    top: 100px;
+  }
+}
+
+.hero-sub-text {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  opacity: 70%;
+  position: absolute;
+  top: 380px;
+  text-align: center;
+  color: $white;
+  max-width: 624px;
+
+  @include laptop {
+    font-size: 18px;
+    top: 370px;
+    max-width: 500px;
+  }
+  @include tablet {
+    font-size: 16px;
+    top: 360px;
+    max-width: 400px;
+  }
+  @include mobile {
+    font-size: 16px;
+    top: 180px;
+    max-width: 300px;
+  }
+}
+
+button {
+  background-color: $green;
+  border-radius: 4px;
+  border: none;
+  width: 192px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: width 0.5s;
+
+  a {
+    color: $white;
+    font-size: 16px;
+    font-weight: 400;
+    padding-right: 8px;
+  }
+
+  @include desktop {
+    &:hover {
+      width: 198px;
+      box-shadow: 0px 2px 40px rgba($color: #000000, $alpha: 0.2);
+    }
+  }
+  @include laptop {
+    &:hover {
+      width: 198px;
+      box-shadow: 0px 2px 40px rgba($color: #000000, $alpha: 0.2);
+    }
+  }
+
+  @include tablet {
+    height: 50px;
+    width: 150px;
+
+    a {
+      font-size: 14px;
+    }
+  }
+
+  @include mobile {
+    background-color: none;
+    height: 40px;
+    width: 150px;
+
+    a {
+      font-size: 14px;
+    }
+  }
+} //end of button
+
+section {
+  width: 100%;
+
+  h1 {
+    font-size: $textPrimary;
+    font-weight: 400;
+    color: $colorPrimaryText;
+    text-align: center;
+    margin-top: 160px;
+  }
+  h2 {
+    font-size: $textSecondary;
+    font-weight: bold;
+    color: $colorSecondaryText;
+  }
+  h3 {
+    font-size: $textTertiary;
+    font-weight: 400;
+    color: $colorTertiaryText;
+    opacity: 0.78;
+  }
+  h4 {
+    font-size: $text;
+    font-weight: 400;
+  }
+  h5 {
+    font-size: $textLight;
+    font-weight: 400;
+    opacity: 50%;
+  }
+
+  @include tablet {
+    h1 {
+      font-size: $textPrimary - 5px;
+      margin-top: 80px;
+    }
+    h2 {
+      font-size: $textSecondary - 3px;
+    }
+    h3 {
+      font-size: $textTertiary - 1px;
+    }
+    h4 {
+      font-size: $text - 1px;
+    }
+    h5 {
+      font-size: $textLight - 1px;
+    }
+  }
+
+  @include mobile {
+    h1 {
+      font-size: $textPrimary - 14px;
+      margin-top: 80px;
+    }
+    h2 {
+      font-size: $textSecondary - 3px;
+    }
+    h3 {
+      font-size: $textTertiary - 2px;
+    }
+    h4 {
+      font-size: $text - 2px;
+    }
+    h5 {
+      font-size: $textLight - 2px;
+    }
+  }
+} //end of section
+
+#requirements {
+  .req-items {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+
+    div {
+      @include grid(3, 8%);
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+
+  h2 {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  h3 {
+    text-align: center;
+    line-height: 22px;
+  }
+
+  @include tablet {
+    img {
+      width: 100%;
+    }
+  }
+
+  @include laptop {
+    img {
+      width: 100%;
+    }
+  }
+
+  @include mobile {
+    .req-items {
+      display: flex;
+      width: 80%;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    @include clearFix;
-
-}//end of #random-food
-
-#benefits{
-    background-color: $bgBorwn;
-
-    h1{
-        margin-top: 0px;
-        padding-top: 160px;
+    img {
+      width: 100%;
     }
 
-    h1,h2{
-        color: $white;
-    }
-    h2{
-        margin-left: 10px;
-        text-transform: uppercase;
-    }
-    h4{
-        color: $white;
-        opacity: 50%;
-        line-height: 24px;
-        margin-left: 10px;
-        max-width: 250px;
+    div {
+      margin-bottom: 30px;
     }
 
-    .wrapper{
-        margin-top: 80px;
-        max-width: 1200px;
+    h2 {
+      text-align: center;
+      margin-top: 10px;
     }
-    
+  }
+} //end of #requirements
 
-    .benefits-items{
-        @include grid(3, 3%);
-        margin-bottom: 4%;
+.third-section {
+  display: flex;
+  width: 100%;
 
-        display: flex;
+  section {
+    @include grid(2, 0%);
+    margin-left: 5%;
+
+    h1 {
+      text-align: left;
     }
 
-    .button{
-        display: flex;
+    div {
+      max-width: 500px;
+      border-bottom: 1px solid rgba($ninjaGreen, 0.2);
+    }
+
+    h4 {
+      color: $colorSecondaryText;
+      margin-top: 20px;
+    }
+    h5 {
+      color: $colorPrimaryText;
+    }
+    a {
+      color: $colorSecondaryText;
+    }
+  }
+
+  @include tablet {
+    flex-direction: column;
+
+    section {
+      @include grid(1, 0%);
+      margin-right: 5%;
+
+      div {
+        max-width: none;
         width: 100%;
-        justify-content: center;
-
+      }
     }
-    
-    .logo{
-        display: flex;
+  }
+  @include mobile {
+    flex-direction: column;
+    section {
+      @include grid(1, 0%);
+      margin-right: 5%;
+
+      div {
+        max-width: none;
         width: 100%;
-        margin-top: 100px;
-        padding-bottom: 50px;
-        justify-content: center;
-        opacity: 40%;
+      }
     }
+  }
+} //end of .third-section
 
-    @include tablet{
-
-        .wrapper{
-            margin-top: 80px;
-            width: 90%
-        }
-
-        .benefits-items{
-            @include grid(1, 0%);
-            margin-bottom: 4%;
-            width: 100%;
-        }
-
-        h4{
-            max-width: none;
-        }
-
-    }
-
-    @include mobile{
-
-        .wrapper{
-            margin-top: 80px;
-            width: 90%
-        }
-
-        .benefits-items{
-            @include grid(1, 0%);
-            margin-bottom: 4%;
-    
-            display: flex;
-            width: 100%;
-        }
-
-        h4{
-            max-width: none;
-        }
-
-    }
-}//end of #benefits
-
-footer{
-    width: 100%;
-    background-color: $black;
-    height: 70px;
+#resources {
+  div {
     display: flex;
     align-items: center;
+    height: 80px;
+  }
+  h1 {
+    margin-bottom: 0px;
+  }
 
-    h3{
-        font-size: $textTertiary;
-        font-weight: 400;
-        color: $offWhite;
+  h4 {
+    padding-left: 10px;
+  }
+} //end of #resources
+
+#latest-info {
+  div {
+    display: block;
+    align-items: center;
+  }
+  h4 {
+    margin-bottom: 8px;
+  }
+
+  @include tablet {
+    h1 {
+      margin-top: 0px;
     }
-    div{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        div{
-            width: 20%;
-            display: flex;
-            justify-content: space-between;
+  }
+} //end of #latest-info
 
-            h1{
-                text-transform: uppercase;
-            }
-        }
-      
+.divider-vertical {
+  border-right: 1px solid $ninjaGreen;
+  margin-top: 160px;
+}
+
+.divider {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+.divider-horizontal {
+  border-top: 1px solid $ninjaGreen;
+  width: 123px;
+  margin-top: 30px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+#random-food {
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.7;
+  }
+  h1 {
+    margin-bottom: 10px;
+  }
+  h3:first-of-type {
+    font-style: italic;
+  }
+  div {
+    margin-top: 20px;
+  }
+  img {
+    @include grid(3, 0%);
+  }
+
+  @include clearFix;
+} //end of #random-food
+
+#benefits {
+  background-color: $bgBorwn;
+
+  h1 {
+    margin-top: 0px;
+    padding-top: 160px;
+  }
+
+  h1,
+  h2 {
+    color: $white;
+  }
+  h2 {
+    margin-left: 10px;
+    text-transform: uppercase;
+  }
+  h4 {
+    color: $white;
+    opacity: 50%;
+    line-height: 24px;
+    margin-left: 10px;
+    max-width: 250px;
+  }
+
+  .wrapper {
+    margin-top: 80px;
+    max-width: 1200px;
+  }
+
+  .benefits-items {
+    @include grid(3, 3%);
+    margin-bottom: 4%;
+
+    display: flex;
+  }
+
+  .button {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .logo {
+    display: flex;
+    width: 100%;
+    margin-top: 100px;
+    padding-bottom: 50px;
+    justify-content: center;
+    opacity: 40%;
+  }
+
+  @include tablet {
+    .wrapper {
+      margin-top: 80px;
+      width: 90%;
     }
-}//end of footer
 
+    .benefits-items {
+      @include grid(1, 0%);
+      margin-bottom: 4%;
+      width: 100%;
+    }
 
+    h4 {
+      max-width: none;
+    }
+  }
 
+  @include mobile {
+    .wrapper {
+      margin-top: 80px;
+      width: 90%;
+    }
+
+    .benefits-items {
+      @include grid(1, 0%);
+      margin-bottom: 4%;
+
+      display: flex;
+      width: 100%;
+    }
+
+    h4 {
+      max-width: none;
+    }
+  }
+} //end of #benefits
+
+footer {
+  width: 100%;
+  background-color: $black;
+  height: 70px;
+  display: flex;
+  align-items: center;
+
+  h3 {
+    font-size: $textTertiary;
+    font-weight: 400;
+    color: $offWhite;
+  }
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    div {
+      width: 20%;
+      display: flex;
+      justify-content: space-between;
+
+      h1 {
+        text-transform: uppercase;
+      }
+    }
+  }
+} //end of footer

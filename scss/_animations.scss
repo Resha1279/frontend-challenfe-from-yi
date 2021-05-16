@@ -1,0 +1,6 @@
+@keyframes nav-opacity {
+    from {opacity: 40%;
+        backdrop-filter: blur(2px)}
+    to {opacity: 100%;
+        backdrop-filter: blur(8px) drop-shadow(4px)}
+  }

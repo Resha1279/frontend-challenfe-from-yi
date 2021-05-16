@@ -32,6 +32,17 @@ a {
   box-sizing: border-box;
 }
 
+@keyframes nav-opacity {
+  from {
+    opacity: 40%;
+    backdrop-filter: blur(2px);
+  }
+  to {
+    opacity: 100%;
+    backdrop-filter: blur(8px) drop-shadow(4px);
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -92,27 +103,8 @@ nav {
   background-color: rgba(15, 17, 16, 0.1);
   display: flex;
   align-items: center;
+  justify-content: space-between;
   overflow: hidden;
-}
-
-.logo {
-  width: 30%;
-}
-
-.space {
-  width: 40%;
-}
-
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-  .space {
-    width: 20%;
-  }
-}
-
-@media screen and (min-width: 481px) and (max-width: 768px) {
-  .space {
-    width: 0%;
-  }
 }
 
 .main-nav {
@@ -149,14 +141,92 @@ nav {
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
   .main-nav {
-    width: 70%;
+    display: none;
   }
 }
 
 @media screen and (max-width: 480px) {
   .main-nav {
-    visibility: hidden;
+    display: none;
   }
+}
+
+@media screen and (max-width: 480px) {
+  .mobile-active {
+    display: flex;
+    position: absolute;
+    top: 80px;
+    right: 0px;
+    width: inherit;
+    z-index: 10;
+    height: 390px;
+    justify-content: space-between;
+  }
+  .mobile-active ul {
+    display: flex;
+    flex-direction: column;
+    animation-name: nav-opacity;
+    animation-duration: 0.2s;
+    backdrop-filter: blur(20px);
+  }
+  .mobile-active ul li {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    text-shadow: 2px 2px 4px #0f1110;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .mobile-active {
+    display: flex;
+    position: absolute;
+    top: 80px;
+    right: 0px;
+    width: inherit;
+    z-index: 10;
+    overflow: hidden;
+  }
+  .mobile-active ul {
+    display: flex;
+    flex-direction: column;
+    animation-name: nav-opacity;
+    animation-duration: 0.4s;
+    backdrop-filter: blur(8px);
+  }
+  .mobile-active ul li {
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.hamburger-icon {
+  display: none;
+  opacity: 70%;
+}
+
+@media screen and (max-width: 480px) {
+  .hamburger-icon {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .hamburger-icon {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+.bar {
+  display: block;
+  width: 26px;
+  height: 4px;
+  border-radius: 25%;
+  margin: 4px;
+  background-color: #ffffff;
 }
 
 .hero {
@@ -588,7 +658,8 @@ section h5 {
   padding-top: 160px;
 }
 
-#benefits h1, #benefits h2 {
+#benefits h1,
+#benefits h2 {
   color: #ffffff;
 }
 
